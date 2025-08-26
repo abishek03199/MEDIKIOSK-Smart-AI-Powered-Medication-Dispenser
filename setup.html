@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDIKIOSK Setup</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .setup-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        .step {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+        .step h3 {
+            margin: 0 0 10px 0;
+            color: #4CAF50;
+        }
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .warning {
+            background: rgba(255, 193, 7, 0.2);
+            border-left-color: #FFC107;
+            color: #FFF3CD;
+        }
+        .info {
+            background: rgba(13, 202, 240, 0.2);
+            border-left-color: #0DCAF0;
+        }
+        .success {
+            background: rgba(25, 135, 84, 0.2);
+            border-left-color: #198754;
+        }
+        .firebase-config {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="setup-container">
+        <h1>🏥 MEDIKIOSK Setup Guide</h1>
+        <p><strong>Project Owner:</strong> ettorashley.works@gmail.com</p>
+        
+        <div class="step info">
+            <h3>📋 Prerequisites</h3>
+            <p>Before starting, make sure you have:</p>
+            <ul>
+                <li>A Google account (ettorashley.works@gmail.com)</li>
+                <li>Node.js installed on your system</li>
+                <li>This project running locally</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>🔥 Step 1: Create Firebase Project</h3>
+            <p>1. Go to <a href="https://console.firebase.google.com" target="_blank" style="color: #4CAF50;">Firebase Console</a></p>
+            <p>2. Click "Create a project"</p>
+            <p>3. Project name: <code>medikiosk</code> or <code>medikiosk-smart-dispenser</code></p>
+            <p>4. Enable Google Analytics (recommended)</p>
+            <p>5. Create project</p>
+        </div>
+
+        <div class="step">
+            <h3>🔐 Step 2: Enable Authentication</h3>
+            <p>1. Go to Authentication → Sign-in method</p>
+            <p>2. Enable Email/Password provider</p>
+            <p>3. Save changes</p>
+        </div>
+
+        <div class="step">
+            <h3>🗃️ Step 3: Set up Firestore</h3>
+            <p>1. Go to Firestore Database</p>
+            <p>2. Create database in production mode</p>
+            <p>3. Choose your preferred location</p>
+        </div>
+
+        <div class="step">
+            <h3>📁 Step 4: Configure Storage</h3>
+            <p>1. Go to Storage</p>
+            <p>2. Get started</p>
+            <p>3. Use same location as Firestore</p>
+        </div>
+
+        <div class="step warning">
+            <h3>⚙️ Step 5: Get Configuration</h3>
+            <p>1. Go to Project Settings (⚙️ icon)</p>
+            <p>2. Add web app: "MEDIKIOSK Web App"</p>
+            <p>3. Copy configuration object</p>
+            <p>4. Create <code>.env</code> file from <code>.env.example</code></p>
+            <p>5. Fill in your Firebase config values</p>
+            
+            <div class="firebase-config">
+VITE_FIREBASE_API_KEY=your-api-key-here<br>
+VITE_FIREBASE_AUTH_DOMAIN=your-project-id.firebaseapp.com<br>
+VITE_FIREBASE_PROJECT_ID=your-project-id<br>
+VITE_FIREBASE_STORAGE_BUCKET=your-project-id.appspot.com<br>
+VITE_FIREBASE_MESSAGING_SENDER_ID=your-sender-id<br>
+VITE_FIREBASE_APP_ID=your-app-id<br>
+VITE_FIREBASE_MEASUREMENT_ID=your-measurement-id
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>🔒 Step 6: Apply Security Rules</h3>
+            <p>1. Copy rules from <code>firebase-security-rules.txt</code></p>
+            <p>2. Paste in Firestore Database → Rules</p>
+            <p>3. Paste Storage rules in Storage → Rules</p>
+            <p>4. Publish changes</p>
+        </div>
+
+        <div class="step success">
+            <h3>👤 Step 7: Create Admin Account</h3>
+            <p>1. Restart your development server</p>
+            <p>2. Go to your app's registration page</p>
+            <p>3. Register with: <code>ettorashley.works@gmail.com</code></p>
+            <p>4. Manually update user role to 'admin' in Firestore</p>
+        </div>
+
+        <div class="step info">
+            <h3>✅ Verification</h3>
+            <p>Test these features:</p>
+            <ul>
+                <li>User registration and login</li>
+                <li>Admin dashboard access</li>
+                <li>Medication management</li>
+                <li>Prescription upload</li>
+                <li>Database operations</li>
+            </ul>
+        </div>
+
+        <div class="step warning">
+            <h3>🚨 Important Notes</h3>
+            <ul>
+                <li>Never commit <code>.env</code> file to version control</li>
+                <li>Use Firebase Spark (free) plan for development</li>
+                <li>Consider Blaze (pay-as-you-go) for production</li>
+                <li>Regularly backup your Firestore data</li>
+                <li>Monitor Firebase usage in console</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p><strong>MEDIKIOSK</strong> - Smart AI-Powered Medication Dispenser</p>
+            <p>Built with ❤️ by Ettore Ashley</p>
+        </div>
+    </div>
+</body>
+</html>
